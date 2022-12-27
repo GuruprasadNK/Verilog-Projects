@@ -1,0 +1,34 @@
+// Code your design here
+module full_adder(a,b,cin,sum,cout);
+  input a,b,cin;
+  output sum,cout;
+  wire w1,w2,w3;
+  wire A,B,S,C,a_in,b_in_out;
+  half_adder HA1(a,b,w1,w2);
+  half_adder HA2(w1,cin,sum,w3);
+  OR_gate O1(w2,w3,cout);
+  
+  
+endmodule
+
+
+
+
+module half_adder(A,B,S,C);
+  input A,B;
+  output reg S,C;
+  always @(*)
+    begin
+      S<=A^B;
+      C<=A&B;
+    end
+endmodule
+module OR_gate(a_in,b_in,out);
+  input a_in,b_in;
+  output out;
+  assign out = a_in|b_in;
+endmodule
+
+    
+ 
+  
